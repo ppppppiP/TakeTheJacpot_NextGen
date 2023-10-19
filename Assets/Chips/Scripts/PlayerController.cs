@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float Speed = 10f;
     [SerializeField] GameObject menu;
     public bool finish = false;
-
+    public bool lose = false;
     private void Start()
     {
 
@@ -33,10 +33,10 @@ public class PlayerController : MonoBehaviour
         {
             finish = true;
         }
-        else if (other.TryGetComponent<Enemy_Detect>(out Enemy_Detect lose))
+        else if (other.TryGetComponent<Enemy_Detect>(out Enemy_Detect lose1))
         {
-            menu.SetActive(true);
-            Time.timeScale = 0;
+            lose = true;
+            
         }
     }
     
