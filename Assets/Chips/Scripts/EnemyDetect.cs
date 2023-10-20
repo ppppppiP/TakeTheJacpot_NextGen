@@ -15,28 +15,39 @@ public class Enemy_Detect : MonoBehaviour
     bool detected=false;
     public  bool lose = false;
     [SerializeField] Image detect_image;
+    
     [SerializeField] GameObject enemy;
+    
+    [SerializeField] Transform camera;
+    [SerializeField] Transform image;
+    
     float percent;
   [SerializeField]  float normalSpeed;
     float zeroSpeed = 0;
     float EnemyStayTimer = 0;
     [SerializeField] float EnemyStayTimeMax;
-    bool move_pull = true; 
+    
+
     private void Update()
     {
+     
+        image.LookAt(camera);
+        //Vector3 direction = position1.position - enemy.transform.position;
+        
+        //Quaternion rotation = Quaternion.LookRotation(direction);
+        //enemy.transform.rotation = rotation;
 
-
-
-        if (_switch == false && move_pull)
+        if (_switch == false )
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position1.position, speed * Time.deltaTime);
             EnemyStay();
+            enemy.transform.LookAt(position1, Vector3.up);
         }
-        else if (_switch == true && move_pull)
+        else if (_switch == true )
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position2.position, speed * Time.deltaTime);
             EnemyStay();
-
+           enemy.transform.LookAt(position2, Vector3.up);
         }
 
         if (enemy.transform.position== position1.position) {
@@ -72,7 +83,7 @@ public class Enemy_Detect : MonoBehaviour
         if(other.TryGetComponent<PlayerController>(out PlayerController pla))
         {
            detected = true;
-            move_pull = false;
+           
             
         }
     }
@@ -100,7 +111,7 @@ public class Enemy_Detect : MonoBehaviour
             if (DetectTime <= 0)
             {
                 DetectTime = 0;
-                move_pull= true;
+              
             }
         }
     }
