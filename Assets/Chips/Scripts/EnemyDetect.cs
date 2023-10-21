@@ -21,22 +21,25 @@ public class Enemy_Detect : MonoBehaviour
     float zeroSpeed = 0;
     float EnemyStayTimer = 0;
     [SerializeField] float EnemyStayTimeMax;
-    bool move_pull = true; 
+    bool move_pull = true;
+    [SerializeField] Transform camera;
+    [SerializeField] Transform image;
     private void Update()
     {
+        image.LookAt(camera);
 
 
-
-        if (_switch == false && move_pull)
+        if (_switch == false )
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position1.position, speed * Time.deltaTime);
             EnemyStay();
+            enemy.transform.LookAt(position1);
         }
-        else if (_switch == true && move_pull)
+        else if (_switch == true )
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position2.position, speed * Time.deltaTime);
             EnemyStay();
-
+           enemy.transform.LookAt(position2 );
         }
 
         if (enemy.transform.position== position1.position) {
@@ -72,7 +75,7 @@ public class Enemy_Detect : MonoBehaviour
         if(other.TryGetComponent<PlayerController>(out PlayerController pla))
         {
            detected = true;
-            move_pull = false;
+            
             
         }
     }
@@ -100,7 +103,7 @@ public class Enemy_Detect : MonoBehaviour
             if (DetectTime <= 0)
             {
                 DetectTime = 0;
-                move_pull= true;
+               
             }
         }
     }
