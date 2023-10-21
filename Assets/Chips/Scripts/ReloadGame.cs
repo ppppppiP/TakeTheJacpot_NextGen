@@ -9,7 +9,7 @@ public class ReloadGame : MonoBehaviour
     // Start is called before the first frame update
    public void LoadScene()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         
     }
 }
