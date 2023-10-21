@@ -21,7 +21,7 @@ public class Enemy_Detect : MonoBehaviour
     float zeroSpeed = 0;
     float EnemyStayTimer = 0;
     [SerializeField] float EnemyStayTimeMax;
-    bool move_pull = true;
+   
     [SerializeField] Transform camera;
     [SerializeField] Transform image;
     private void Update()
