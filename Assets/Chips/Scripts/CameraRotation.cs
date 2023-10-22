@@ -5,19 +5,36 @@ using UnityEngine;
 
 public class CameraRotation : MonoBehaviour
 {
-   [SerializeField] float rotationSpeed = 20.0f; 
-   [SerializeField] float maxRotationAngle = 90.0f;
+   [SerializeField]  float rotationSpeed = 30f;
+    [SerializeField] float maxRotationAngle = 90f;
+    [SerializeField] float pauseDuration = 2f;
 
-    private int rotationDirection = 1; 
+    private int rotationDirection = 1;
+    private bool isPaused = false;
 
-    void Update()
+    void Start()
     {
-        
-        transform.Rotate(Vector3.up * rotationSpeed * rotationDirection * Time.deltaTime);
+        StartCoroutine(RotateWithPause());
+    }
 
-        if (Mathf.Abs(transform.rotation.eulerAngles.y) >= maxRotationAngle)
+    IEnumerator RotateWithPause()
+    {
+        while (true)
         {
-            rotationDirection *= -1;
+            if (!isPaused)
+            {
+                transform.Rotate(Vector3.up * rotationSpeed * rotationDirection * Time.deltaTime);
+
+                if (Mathf.Abs(transform.rotation.eulerAngles.y) >= maxRotationAngle)
+                {
+                    rotationDirection *= -1;
+                    isPaused = true;
+                    yield return new WaitForSeconds(pauseDuration);
+                    isPaused = false;
+                }
+            }
+            yield return null;
         }
     }
 }
+
