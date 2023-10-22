@@ -49,10 +49,6 @@ Material:
         m_Texture: {fileID: 2800000, guid: c1f355d83ab337f46bf1d7e5f060176b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture:
-        m_Texture: {fileID: 2800000, guid: c1f355d83ab337f46bf1d7e5f060176b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _Waves:
         m_Texture: {fileID: 2800000, guid: f7ea911a8b4ba9b4f98ff9c63e4538e4, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -85,11 +81,8 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _ColorBackground: {r: 1.4980392, g: 1.4980392, b: 1.4980392, a: 0}
-    - _ColorGrid: {r: 0.24496216, g: 2.9960785, b: 0.73591757, a: 0}
-    - _ColorWaves: {r: 0.9798486, g: 11.984314, b: 2.9436703, a: 0}
+    - _ColorBackground: {r: 3.622642, g: 3.622642, b: 3.622642, a: 0}
+    - _ColorGrid: {r: 0.2684227, g: 3.283019, b: 0.8063979, a: 0}
+    - _ColorWaves: {r: 0, g: 1.056604, b: 0.01213243, a: 0}
     - _GradientSpeed: {r: 0, g: 0.1, b: 0, a: 0}
-    - _MainColor: {r: 0.36549252, g: 1.4290166, b: 0.30557573, a: 0}
-    - _VawesColor: {r: 0, g: 1, b: 0.11395025, a: 0}
-    - _WavesColor: {r: 0, g: 1.056604, b: 0.01213243, a: 0}
   m_BuildTextureStacks: []
