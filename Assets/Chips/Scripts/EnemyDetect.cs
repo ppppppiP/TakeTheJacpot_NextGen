@@ -17,7 +17,7 @@ public class Enemy_Detect : MonoBehaviour
     [SerializeField] Image detect_image;
     [SerializeField] GameObject enemy;
     float percent;
-  [SerializeField]  float normalSpeed;
+    [SerializeField]  float normalSpeed;
     float zeroSpeed = 0;
     float EnemyStayTimer = 0;
     [SerializeField] float EnemyStayTimeMax;
@@ -33,13 +33,13 @@ public class Enemy_Detect : MonoBehaviour
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position1.position, speed * Time.deltaTime);
             EnemyStay();
-            enemy.transform.LookAt(position1);
+            
         }
         else if (_switch == true )
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position2.position, speed * Time.deltaTime);
             EnemyStay();
-           enemy.transform.LookAt(position2 );
+           
         }
 
         if (enemy.transform.position== position1.position) {
@@ -129,6 +129,12 @@ public class Enemy_Detect : MonoBehaviour
         if(EnemyStayTimer >= EnemyStayTimeMax) 
         {
             speed = normalSpeed;
+            if (_switch == true)
+            { enemy.transform.LookAt(position2); }
+            else if (_switch == false)
+            { enemy.transform.LookAt(position1); }
+
+
         }
        
     }
@@ -136,6 +142,7 @@ public class Enemy_Detect : MonoBehaviour
     {
         if(EnemyStayTimer >= 0)
         {
+            
             EnemyStayTimer = 0;
         }
     }

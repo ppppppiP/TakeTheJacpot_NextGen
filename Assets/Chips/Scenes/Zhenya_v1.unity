@@ -11090,6 +11090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 20
   maxRotationAngle: 90
+  pauseDuration: 2
 --- !u!65 &1236312545
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17113,15 +17114,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748377570}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.88, y: 0, z: 0.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7472357394462702642}
   - {fileID: 2633499715001856862}
   m_Father: {fileID: 822832542}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1748953662
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34708,7 +34709,7 @@ MonoBehaviour:
   detect_image: {fileID: 1681379315290887334}
   enemy: {fileID: 1748377570}
   normalSpeed: 3
-  EnemyStayTimeMax: 10
+  EnemyStayTimeMax: 100
   camera: {fileID: 543084546}
   image: {fileID: 6940972399681755415}
 --- !u!33 &2248683036426835585
