@@ -22,10 +22,11 @@ public class Enemy_Detect : MonoBehaviour
     [SerializeField] Transform image;
     
     float percent;
-  [SerializeField]  float normalSpeed;
+    [SerializeField]  float normalSpeed;
     float zeroSpeed = 0;
     float EnemyStayTimer = 0;
     [SerializeField] float EnemyStayTimeMax;
+<<<<<<< HEAD
     
 
     private void Update()
@@ -37,17 +38,35 @@ public class Enemy_Detect : MonoBehaviour
         //Quaternion rotation = Quaternion.LookRotation(direction);
         //enemy.transform.rotation = rotation;
 
+=======
+   
+    [SerializeField] Transform camera;
+    [SerializeField] Transform image;
+    private void Update()
+    {
+        image.LookAt(camera);
+
+
+>>>>>>> 3f4f68198b2179b3bdc9c921f5e08e43056d9965
         if (_switch == false )
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position1.position, speed * Time.deltaTime);
             EnemyStay();
+<<<<<<< HEAD
             enemy.transform.LookAt(position1, Vector3.up);
+=======
+            
+>>>>>>> 3f4f68198b2179b3bdc9c921f5e08e43056d9965
         }
         else if (_switch == true )
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position2.position, speed * Time.deltaTime);
             EnemyStay();
+<<<<<<< HEAD
            enemy.transform.LookAt(position2, Vector3.up);
+=======
+           
+>>>>>>> 3f4f68198b2179b3bdc9c921f5e08e43056d9965
         }
 
         if (enemy.transform.position== position1.position) {
@@ -83,7 +102,11 @@ public class Enemy_Detect : MonoBehaviour
         if(other.TryGetComponent<PlayerController>(out PlayerController pla))
         {
            detected = true;
+<<<<<<< HEAD
            
+=======
+            
+>>>>>>> 3f4f68198b2179b3bdc9c921f5e08e43056d9965
             
         }
     }
@@ -111,7 +134,11 @@ public class Enemy_Detect : MonoBehaviour
             if (DetectTime <= 0)
             {
                 DetectTime = 0;
+<<<<<<< HEAD
               
+=======
+               
+>>>>>>> 3f4f68198b2179b3bdc9c921f5e08e43056d9965
             }
         }
     }
@@ -137,6 +164,12 @@ public class Enemy_Detect : MonoBehaviour
         if(EnemyStayTimer >= EnemyStayTimeMax) 
         {
             speed = normalSpeed;
+            if (_switch == true)
+            { enemy.transform.LookAt(position2); }
+            else if (_switch == false)
+            { enemy.transform.LookAt(position1); }
+
+
         }
        
     }
@@ -144,6 +177,7 @@ public class Enemy_Detect : MonoBehaviour
     {
         if(EnemyStayTimer >= 0)
         {
+            
             EnemyStayTimer = 0;
         }
     }
