@@ -19,12 +19,12 @@ public class PlayerController : MonoBehaviour
       
 
         float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 move_vert = transform.forward;
-        cc.Move(vertical * move_vert * Speed * Time.deltaTime);
+        
 
         float horisontal = Input.GetAxisRaw("Horizontal");
-        Vector3 move_horizon = transform.right;
-        cc.Move(horisontal * move_horizon * Speed * Time.deltaTime);
+        Vector3 moveDirection = (vertical * transform.forward + horisontal * transform.right).normalized;
+        cc.Move(moveDirection * Speed * Time.deltaTime);
+
 
     }
     private void OnTriggerEnter(Collider other)
