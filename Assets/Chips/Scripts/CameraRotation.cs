@@ -11,7 +11,7 @@ public class CameraRotation : MonoBehaviour
     [SerializeField] GameObject camera;
     [SerializeField] Transform point1;
     [SerializeField] Transform point2;
-    private int rotationDirection = 1;
+   
     private bool isPaused = false;
     Transform target;
     [SerializeField] float PauseTime;
