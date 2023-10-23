@@ -7,34 +7,63 @@ public class CameraRotation : MonoBehaviour
 {
    [SerializeField]  float rotationSpeed = 30f;
     [SerializeField] float maxRotationAngle = 90f;
-    [SerializeField] float pauseDuration = 2f;
-
+    
+    [SerializeField] GameObject camera;
+    [SerializeField] Transform point1;
+    [SerializeField] Transform point2;
     private int rotationDirection = 1;
     private bool isPaused = false;
-
-    void Start()
+    Transform target;
+    [SerializeField] float PauseTime;
+     float Timer = 0;
+    private void Start()
     {
-        StartCoroutine(RotateWithPause());
+        target = point1;
+    }
+    private void Update()
+    {
+        if (!isPaused)
+        {
+            camera.transform.rotation = Quaternion.RotateTowards(camera.transform.rotation, Quaternion.LookRotation(target.position-camera.transform.position), rotationSpeed*Time.deltaTime);
+
+           
+            if (Quaternion.LookRotation(target.position - camera.transform.position)==camera.transform.rotation)//?
+            {    Debug.Log("hjklhjk");
+                if (target == point1)
+                {
+                    target = point2;
+                }
+                else
+                {
+                    target = point1;
+                }
+                
+              
+                isPaused = true;
+                Timer = 0;
+            }
+            
+
+        }
+        else
+        {
+            Pause_rotation();
+            
+        }
+        
     }
 
-    IEnumerator RotateWithPause()
-    {
-        while (true)
-        {
-            if (!isPaused)
-            {
-                transform.Rotate(Vector3.up * rotationSpeed * rotationDirection * Time.deltaTime);
 
-                if (Mathf.Abs(transform.rotation.eulerAngles.y) >= maxRotationAngle)
-                {
-                    rotationDirection *= -1;
-                    isPaused = true;
-                    yield return new WaitForSeconds(pauseDuration);
-                    isPaused = false;
-                }
-            }
-            yield return null;
+    public void Pause_rotation()
+    {
+        Timer += 0.1f;
+        isPaused = true;
+        if (Timer >= PauseTime)
+        {
+            isPaused = false;
+            
         }
     }
+    
 }
 
