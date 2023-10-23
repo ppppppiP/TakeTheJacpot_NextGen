@@ -79,6 +79,9 @@ public class LightEnemy : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(enemy.position, target.position);
+        if (target != null && enemy != null )
+        {
+            Gizmos.DrawLine(enemy.position, target.position);
+        }
     }
 }
