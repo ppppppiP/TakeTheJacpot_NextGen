@@ -12,7 +12,7 @@ public class Finish_Taker : MonoBehaviour
     {
         if( other.TryGetComponent<PlayerController>(out PlayerController pla))
             {
-            Debug.Log("Вы подобрали золото");
+           
                 finish = true;
             //gold.active = false;
             }
