@@ -58,22 +58,18 @@ public class PlayerController : MonoBehaviour
                 moveDirection = (vertical * transform.forward + horisontal * transform.right).normalized;
                 cc.Move(moveDirection * Speed * Time.deltaTime);
             }
-            else if(!Input.GetButton("Vertical"))
-            {
-                anim.SetBool("isWalk", false);
-                moveDirection = Vector3.zero; // —брасываем moveDirection в ноль, чтобы остановить вращение при отжатии клавиш.
-            }
+            
 
         }
 
         private void RotateTowardsMovement()
-    {
-        if (moveDirection != Vector3.zero)
-        {
+       {
+        
+      
             
             Quaternion rotation = Quaternion.LookRotation(moveDirection);
             
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Speed);
-        }
+      
     }
 }

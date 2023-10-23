@@ -1,6 +1,8 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LightEnemy : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class LightEnemy : MonoBehaviour
     [SerializeField] Transform enemy;
     [SerializeField] Transform target;
     [SerializeField] LayerMask layerMask;
+    [SerializeField] Image image;
+    float percent;
     private void Update()
     {
        if( Physics.Linecast(enemy.position, target.position, layerMask))
@@ -28,6 +32,7 @@ public class LightEnemy : MonoBehaviour
             DetectDown();
 
         }
+        ImageFill1();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -72,10 +77,14 @@ public class LightEnemy : MonoBehaviour
         if (DetectTime >= Timer)
         {
 
-            Debug.Log("Detected");
+          
             UIAdministrator.Menu.LoseMenu.active = true;
             Time.timeScale = 0;
         }
+    }void ImageFill1()
+    {
+        percent = DetectTime / Timer;
+        image.fillAmount = percent;
     }
     private void OnDrawGizmos()
     {
@@ -84,4 +93,5 @@ public class LightEnemy : MonoBehaviour
             Gizmos.DrawLine(enemy.position, target.position);
         }
     }
+    
 }
