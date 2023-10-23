@@ -12,16 +12,16 @@ public class Enemy_Detect : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] private Transform position1, position2;
     private bool _switch = false;
-    bool detected=false;
-    public  bool lose = false;
+    bool detected = false;
+    public bool lose = false;
     [SerializeField] Image detect_image;
     [SerializeField] GameObject enemy;
     float percent;
-    [SerializeField]  float normalSpeed;
+    [SerializeField] float normalSpeed;
     float zeroSpeed = 0;
     float EnemyStayTimer = 0;
     [SerializeField] float EnemyStayTimeMax;
-   
+
     [SerializeField] Transform camera;
     [SerializeField] Transform image;
     private void Update()
@@ -29,54 +29,56 @@ public class Enemy_Detect : MonoBehaviour
         image.LookAt(camera);
 
 
-        if (_switch == false )
+        if (_switch == false)
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position1.position, speed * Time.deltaTime);
             EnemyStay();
-            
+
         }
-        else if (_switch == true )
+        else if (_switch == true)
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position2.position, speed * Time.deltaTime);
             EnemyStay();
-           
+
         }
 
-        if (enemy.transform.position== position1.position) {
-            
+        if (enemy.transform.position == position1.position)
+        {
+
             _switch = true;
             EnemyMove();
         }
-        else if(enemy.transform.position == position2.position) {
+        else if (enemy.transform.position == position2.position)
+        {
 
-           
+
             _switch = false;
             EnemyMove();
         }
-        
+
         ImageFill1();
-        
+
         if (detected)
         {
             Detected();
-            
+
             DetectUp();
-            
+
         }
-        else 
+        else
         {
             DetectDown();
-            
+
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-       
-        if(other.TryGetComponent<PlayerController>(out PlayerController pla))
+
+        if (other.TryGetComponent<PlayerController>(out PlayerController pla))
         {
-           detected = true;
-            
-            
+            detected = true;
+
+
         }
     }
     private void OnTriggerExit(Collider other)
@@ -84,49 +86,49 @@ public class Enemy_Detect : MonoBehaviour
         if (other.TryGetComponent<PlayerController>(out PlayerController pla))
         {
             detected = false;
-           
+
         }
 
     }
     private void DetectUp()
     {
         DetectTime += 0.1f;
-       
-        
+
+
     }
     private void DetectDown()
     {
-        
+
         if (DetectTime > 0)
         {
             DetectTime -= 0.1f;
             if (DetectTime <= 0)
             {
                 DetectTime = 0;
-               
+
             }
         }
     }
     private void Detected()
     {
-        if(DetectTime >= Timer) 
-{
-          
+        if (DetectTime >= Timer)
+        {
+
             Debug.Log("Detected");
             UIAdministrator.Menu.LoseMenu.active = true;
             Time.timeScale = 0;
-}
+        }
     }
     void ImageFill1()
     {
         percent = DetectTime / Timer;
         detect_image.fillAmount = percent;
     }
-   void EnemyStay()
+    void EnemyStay()
     {
         EnemyStayTimer += 0.1f;
         speed = zeroSpeed;
-        if(EnemyStayTimer >= EnemyStayTimeMax) 
+        if (EnemyStayTimer >= EnemyStayTimeMax)
         {
             speed = normalSpeed;
             if (_switch == true)
@@ -136,13 +138,13 @@ public class Enemy_Detect : MonoBehaviour
 
 
         }
-       
+
     }
-   void EnemyMove()
+    void EnemyMove()
     {
-        if(EnemyStayTimer >= 0)
+        if (EnemyStayTimer >= 0)
         {
-            
+
             EnemyStayTimer = 0;
         }
     }

@@ -7,8 +7,15 @@ public class LightEnemy : MonoBehaviour
     [SerializeField] float DetectTime;
     [SerializeField] float Timer;
     bool detected = false;
+    [SerializeField] Transform enemy;
+    [SerializeField] Transform target;
+    [SerializeField] LayerMask layerMask;
     private void Update()
     {
+       if( Physics.Linecast(enemy.position, target.position, layerMask))
+        {
+            detected = false;
+        }
         if (detected)
         {
             Detected();
@@ -69,5 +76,9 @@ public class LightEnemy : MonoBehaviour
             UIAdministrator.Menu.LoseMenu.active = true;
             Time.timeScale = 0;
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(enemy.position, target.position);
     }
 }
