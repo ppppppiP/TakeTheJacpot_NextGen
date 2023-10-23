@@ -924,6 +924,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 953350e7c47ab7944b711987dd003a64, type: 3}
+--- !u!4 &1484849930757448549 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5291153191941951790, guid: a189d89c8a734644b81e4a9372a6b34d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8297305508338668791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1536778025216271912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1236,6 +1242,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6517757373415103694}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2840354838687163149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3179865700750784951}
+  m_Layer: 0
+  m_Name: "Denis_Props_Atlas_3_1\u041A 1"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &3085784461311200453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,6 +1274,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &3179865700750784951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2840354838687163149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.19840169, y: 0.48241267, z: 8.079174}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1484849930757448549}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3320847804131837555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1265,6 +1303,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_DEN_Big Painting 2_Polotno
       objectReference: {fileID: 0}
+    - target: {fileID: 4410875095136632434, guid: c0f586fd62702654ebb6304071e224bb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 80d47d44765ae5b43b0eb226572d8d0b,
+        type: 3}
     - target: {fileID: 7292355603477045642, guid: c0f586fd62702654ebb6304071e224bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1661,6 +1705,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_DEN_Painting 5_Polotno
       objectReference: {fileID: 0}
+    - target: {fileID: 9172919117316680315, guid: 6dd88afff40aad342b494b6d80cdd024,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 80d47d44765ae5b43b0eb226572d8d0b,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1877,6 +1927,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_DEN_Painting 4_Polotno
       objectReference: {fileID: 0}
+    - target: {fileID: 5601595751541097958, guid: f8e1daba45d787446a2ba4fe54c15b02,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 80d47d44765ae5b43b0eb226572d8d0b,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2401,6 +2457,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_DEN_Big Painting 1_Polotno
       objectReference: {fileID: 0}
+    - target: {fileID: 5478867369060692312, guid: 51552895312d22f4f96a61b59419bbd9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 80d47d44765ae5b43b0eb226572d8d0b,
+        type: 3}
     - target: {fileID: 7295882011270428657, guid: 51552895312d22f4f96a61b59419bbd9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2813,6 +2875,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_DEN_Painting 1_Polotno
       objectReference: {fileID: 0}
+    - target: {fileID: 6919905608152252418, guid: 69b505f2912a9be4f8ba0cef4ecb8759,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 80d47d44765ae5b43b0eb226572d8d0b,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2975,6 +3043,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7835459642f964b915871836bd8235, type: 3}
+--- !u!1001 &8297305508338668791
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3179865700750784951}
+    m_Modifications:
+    - target: {fileID: 3115537664521395508, guid: a189d89c8a734644b81e4a9372a6b34d,
+        type: 3}
+      propertyPath: m_Name
+      value: SM_DEN_Rozetka.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291153191941951790, guid: a189d89c8a734644b81e4a9372a6b34d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.6850104
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291153191941951790, guid: a189d89c8a734644b81e4a9372a6b34d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.525
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291153191941951790, guid: a189d89c8a734644b81e4a9372a6b34d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.166
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291153191941951790, guid: a189d89c8a734644b81e4a9372a6b34d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291153191941951790, guid: a189d89c8a734644b81e4a9372a6b34d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000003774895
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291153191941951790, guid: a189d89c8a734644b81e4a9372a6b34d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291153191941951790, guid: a189d89c8a734644b81e4a9372a6b34d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291153191941951790, guid: a189d89c8a734644b81e4a9372a6b34d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291153191941951790, guid: a189d89c8a734644b81e4a9372a6b34d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291153191941951790, guid: a189d89c8a734644b81e4a9372a6b34d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a189d89c8a734644b81e4a9372a6b34d, type: 3}
 --- !u!1001 &8455556499636842738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3038,6 +3174,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5103961345266859222, guid: 4939956b88315d14ba6a7688ce45260c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 80d47d44765ae5b43b0eb226572d8d0b,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3248,6 +3390,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5751400166735538606, guid: 033333402e768154190d9335dd2a9869,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 80d47d44765ae5b43b0eb226572d8d0b,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3351,3 +3499,4 @@ SceneRoots:
   - {fileID: 5879260506405673672}
   - {fileID: 2421028065702286975}
   - {fileID: 6156354691159455701}
+  - {fileID: 3179865700750784951}
