@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8927101495098848267
+--- !u!1 &5411333450633054107
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 107070839544440719}
-  - component: {fileID: 2714559637746962625}
-  - component: {fileID: 1966034009770169721}
+  - component: {fileID: 4637940539339849973}
+  - component: {fileID: 4319461372810200456}
+  - component: {fileID: 2877126678202318290}
   m_Layer: 0
   m_Name: SM_DEN_Among us
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &107070839544440719
+--- !u!4 &4637940539339849973
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8927101495098848267}
+  m_GameObject: {fileID: 5411333450633054107}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -2.470659, y: 1.5137007, z: -0.019107305}
@@ -33,21 +33,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2714559637746962625
+--- !u!33 &4319461372810200456
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8927101495098848267}
+  m_GameObject: {fileID: 5411333450633054107}
   m_Mesh: {fileID: 8201374815213341241, guid: b17a1a0fd3653744b88dd0a7c89ab3af, type: 3}
---- !u!23 &1966034009770169721
+--- !u!23 &2877126678202318290
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8927101495098848267}
+  m_GameObject: {fileID: 5411333450633054107}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
