@@ -14,6 +14,7 @@ public class LightEnemy : MonoBehaviour
     [SerializeField] LayerMask layerMask;
     [SerializeField] Image image;
     float percent;
+   
     private void Update()
     {
        if( Physics.Linecast(enemy.position, target.position, layerMask))
@@ -32,7 +33,7 @@ public class LightEnemy : MonoBehaviour
             DetectDown();
 
         }
-        ImageFill1();
+        ImageFill();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -81,10 +82,12 @@ public class LightEnemy : MonoBehaviour
             UIAdministrator.Menu.LoseMenu.active = true;
             Time.timeScale = 0;
         }
-    }void ImageFill1()
+    }
+    void ImageFill()
     {
-        percent = DetectTime / Timer;
-        image.fillAmount = percent;
+        
+        image.fillAmount = DetectTime / Timer;
+        
     }
     private void OnDrawGizmos()
     {
