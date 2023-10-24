@@ -92,7 +92,7 @@ public class Enemy_Detect : MonoBehaviour
     }
     private void DetectUp()
     {
-        DetectTime += 0.1f;
+        DetectTime += 1f * Time.deltaTime;
 
 
     }
@@ -126,7 +126,7 @@ public class Enemy_Detect : MonoBehaviour
     }
     void EnemyStay()
     {
-        EnemyStayTimer += 0.1f;
+        EnemyStayTimer += 1f * Time.deltaTime;
         speed = zeroSpeed;
         if (EnemyStayTimer >= EnemyStayTimeMax)
         {
