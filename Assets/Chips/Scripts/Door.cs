@@ -11,14 +11,18 @@ public class Door_opener : MonoBehaviour
     public int pass;
     public static Door_opener Pass;
     [SerializeField] int MaxPass;
-    private void Awake()
+    [SerializeField] Animator anim;
+    private void Update()
     {
-        Pass = this;
+         Pass = this;
     }
+   
     private void OnTriggerStay(Collider other)
     {
+        
         if (!isOpen && other.TryGetComponent(out PlayerController pla)&&pass>=MaxPass && Input.GetKeyDown(KeyCode.E)) 
         {
+            anim.CrossFade("Inter", 0.1f);
             RotateDoor();
         }
     }
