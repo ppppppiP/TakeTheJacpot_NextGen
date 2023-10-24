@@ -114,7 +114,7 @@ public class Enemy_Detect : MonoBehaviour
         if (DetectTime >= Timer)
         {
 
-            Debug.Log("Detected");
+           
             UIAdministrator.Menu.LoseMenu.active = true;
             Time.timeScale = 0;
         }
