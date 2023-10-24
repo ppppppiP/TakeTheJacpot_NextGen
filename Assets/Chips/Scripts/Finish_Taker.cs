@@ -12,7 +12,7 @@ public class Finish_Taker : MonoBehaviour
     {
         if( other.TryGetComponent<PlayerController>(out PlayerController pla))
             {
-           
+            gold.active = false;
                 finish = true;
             //gold.active = false;
             }

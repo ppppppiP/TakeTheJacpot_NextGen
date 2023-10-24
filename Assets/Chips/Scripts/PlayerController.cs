@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         }
 
         
-        RotateTowardsMovement();
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,24 +52,23 @@ public class PlayerController : MonoBehaviour
         {
             float vertical = Input.GetAxisRaw("Vertical");
             float horisontal = Input.GetAxisRaw("Horizontal");
-            if (vertical != -1)
-            {
+            
                 anim.SetBool("isWalk", true);
                 moveDirection = (vertical * transform.forward + horisontal * transform.right).normalized;
                 cc.Move(moveDirection * Speed * Time.deltaTime);
-            }
             
+             if (vertical != -1)
+    {
+        Quaternion rotation = Quaternion.LookRotation(moveDirection);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Speed);
+    }
 
         }
 
-        private void RotateTowardsMovement()
-       {
-        
-      
-            
-            Quaternion rotation = Quaternion.LookRotation(moveDirection);
-            
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Speed);
-      
-    }
+       
+
+
+   
+    
 }

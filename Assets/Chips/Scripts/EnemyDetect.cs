@@ -24,6 +24,7 @@ public class Enemy_Detect : MonoBehaviour
 
     [SerializeField] Transform camera;
     [SerializeField] Transform image;
+    [SerializeField] Animator anim;
     private void Update()
     {
         image.LookAt(camera);
@@ -33,25 +34,25 @@ public class Enemy_Detect : MonoBehaviour
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position1.position, speed * Time.deltaTime);
             EnemyStay();
-
+         
         }
         else if (_switch == true)
         {
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position2.position, speed * Time.deltaTime);
             EnemyStay();
-
+           
         }
 
         if (enemy.transform.position == position1.position)
         {
-
+            
             _switch = true;
             EnemyMove();
         }
         else if (enemy.transform.position == position2.position)
         {
 
-
+           
             _switch = false;
             EnemyMove();
         }
@@ -126,22 +127,24 @@ public class Enemy_Detect : MonoBehaviour
     }
     void EnemyStay()
     {
+        
         EnemyStayTimer += 1f * Time.deltaTime;
-        speed = zeroSpeed;
+        speed = zeroSpeed; anim.SetBool("IsWalk", false);
         if (EnemyStayTimer >= EnemyStayTimeMax)
-        {
+        {   anim.SetBool("IsWalk", true);
             speed = normalSpeed;
             if (_switch == true)
             { enemy.transform.LookAt(position2); }
             else if (_switch == false)
             { enemy.transform.LookAt(position1); }
-
+           
 
         }
 
     }
     void EnemyMove()
     {
+       
         if (EnemyStayTimer >= 0)
         {
 
