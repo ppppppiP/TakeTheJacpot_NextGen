@@ -56,7 +56,7 @@ public class LightEnemy : MonoBehaviour
     }
     private void DetectUp()
     {
-        DetectTime += 0.1f;
+        DetectTime += 1f * Time.deltaTime;
 
 
     }
@@ -65,7 +65,7 @@ public class LightEnemy : MonoBehaviour
 
         if (DetectTime > 0)
         {
-            DetectTime -= 0.1f;
+            DetectTime -= 1f*Time.deltaTime;
             if (DetectTime <= 0)
             {
                 DetectTime = 0;
