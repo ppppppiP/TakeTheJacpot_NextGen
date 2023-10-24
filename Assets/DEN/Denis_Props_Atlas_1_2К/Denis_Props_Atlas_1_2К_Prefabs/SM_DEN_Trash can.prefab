@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2459557484585888301}
   - component: {fileID: 7184459984642699996}
   - component: {fileID: 8323133879809835264}
+  - component: {fileID: 3995789966392806905}
   m_Layer: 0
   m_Name: SM_DEN_Trash can
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3995789966392806905
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066850718763470109}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.44545102, y: 6.24, z: 0.31761152}
+  m_Center: {x: -0.000000014901161, y: 0.24501067, z: -0.00000011175871}

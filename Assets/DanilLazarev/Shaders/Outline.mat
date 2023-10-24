@@ -64,7 +64,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _SizeOutline: 1.05
+    - _SizeOutline: 1.1
     - _SrcBlend: 5
     - _Surface: 1
     - _WorkflowMode: 1
@@ -72,5 +72,5 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _ColorEmission: {r: 0, g: 1.5516915, b: 27.532717, a: 0}
+    - _ColorEmission: {r: 4.8671446, g: 3.6302385, b: 0, a: 0}
   m_BuildTextureStacks: []
