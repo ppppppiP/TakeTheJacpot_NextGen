@@ -10,8 +10,8 @@ public class pass_collector : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     { if (other.TryGetComponent(out PlayerController pla))
         {
-            Door_opener.Pass.pass += 1;
-            text.text = Door_opener.Pass.pass.ToString();
+            PlayerController.Pass.pass += 1;
+            text.text = PlayerController.Pass.pass.ToString();
             gameObject.SetActive(false);
         }
     }
