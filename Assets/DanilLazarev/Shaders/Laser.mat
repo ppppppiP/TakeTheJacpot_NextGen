@@ -57,14 +57,14 @@ Material:
     - _QueueOffset: 0
     - _SrcBlend: 5
     - _StrangeLaser: 10
-    - _StrangePulsLaser_1: 0
-    - _StrangePulsLaser_2: 27.66
+    - _StrangePulsLaser_1: 2
+    - _StrangePulsLaser_2: 2
     - _Surface: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _MainColor: {r: 33.33255, g: 0, b: 0, a: 0}
+    - _MainColor: {r: 24.966736, g: 1.5702323, b: 1.7802275, a: 0}
     - _StrangePulsLaser_2: {r: 0, g: -0.35, b: 0, a: 0}
     - _Transform: {r: 0, g: -0.35, b: 0, a: 0}
     - _Transform_1: {r: 0, g: -0.5, b: 0, a: 0}

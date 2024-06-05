@@ -5,7 +5,7 @@ public class CameraController : MonoBehaviour
     public Transform target;
     public float smoothSpeed = 5f;
     public float rotationSpeed = 5.0f;
-    public float zoomSpeed = 5.0f;
+
 
     public float minVerticalAngle;
     public float maxVerticalAngle;
