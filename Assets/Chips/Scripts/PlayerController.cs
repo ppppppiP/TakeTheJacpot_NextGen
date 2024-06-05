@@ -16,9 +16,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip steps;
     public int pass;
     public static PlayerController Pass;
+
+    Transform volocity;
+    Vector3 currentPos;
+
     private void Start()
     { Pass = this;
         Time.timeScale = 1;
+       
     }
 
     private bool isSoundPlaying = false;
@@ -26,7 +31,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-       
+
+        cc.Move(Vector3.down);
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         { Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
             anim.SetBool("isWalk", true);
