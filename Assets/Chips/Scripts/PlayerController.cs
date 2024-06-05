@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public int pass;
     public static PlayerController Pass;
     private void Start()
-    {
+    { Pass = this;
         Time.timeScale = 1;
     }
 
@@ -26,9 +26,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Pass = this;
+       
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
-        {Controller();
+        { Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+            anim.SetBool("isWalk", true);
             if (!isSoundPlaying) 
             {
                 
@@ -64,29 +65,64 @@ public class PlayerController : MonoBehaviour
     }
 
    
-        private void Controller()
-        {
-            float vertical = Input.GetAxisRaw("Vertical");
-            float horisontal = Input.GetAxisRaw("Horizontal");
-          anim.SetBool("isWalk", true);
-                moveDirection = (vertical * transform.forward + horisontal * transform.right).normalized;
-                cc.Move(moveDirection * Speed * Time.deltaTime);
+    //    private void Controller()
+    //    {
+    //        float vertical = Input.GetAxisRaw("Vertical");
+    //        float horisontal = Input.GetAxisRaw("Horizontal");
+    //      anim.SetBool("isWalk", true);
+    //            moveDirection = (vertical * transform.forward + horisontal * transform.right).normalized;
+    //            cc.Move(moveDirection * Speed * Time.deltaTime);
         
         
           
       
-             if (vertical != -1)
+    //         if (vertical != -1)
+    //{
+    //    Quaternion rotation = Quaternion.LookRotation(moveDirection);
+
+    //    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Speed);
+    //}
+
+    //    }
+
+     void Move(Vector2 inputDirection)
     {
-        Quaternion rotation = Quaternion.LookRotation(moveDirection);
+        Vector3 cameraForward = Camera.main.transform.forward;
+        cameraForward.y = 0f;
+        cameraForward.Normalize();
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Speed);
-    }
+        Vector3 cameraRight = Camera.main.transform.right;
+        cameraRight.y = 0f;
+        cameraRight.Normalize();
 
+        Vector3 moveDirection = cameraForward * inputDirection.y + cameraRight * inputDirection.x;
+        moveDirection.Normalize();
+
+        if (moveDirection != Vector3.zero)
+        {
+            cc.Move(moveDirection * Speed * Time.deltaTime);
+
+            if (inputDirection != Vector2.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+                float rotationSpeed = 5 * Time.deltaTime;
+
+                if (cc.transform.forward != moveDirection)
+                {
+                    cc.transform.rotation = Quaternion.RotateTowards(cc.transform.rotation, targetRotation, rotationSpeed);
+                }
+            }
         }
 
-       
+        if (inputDirection != Vector2.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            float rotationSpeed = 100 * Time.deltaTime;
+            cc.transform.rotation = Quaternion.Lerp(cc.transform.rotation, targetRotation, rotationSpeed);
+        }
+    }
 
 
-   
-    
+
+
 }

@@ -6,6 +6,7 @@ public class exit : MonoBehaviour
 {
 	public void On_Click_button()
 	{
+		Debug.Log("Работает");
 		Application.Quit();
 	}
 }

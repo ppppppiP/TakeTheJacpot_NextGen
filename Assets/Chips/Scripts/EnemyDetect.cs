@@ -22,12 +22,12 @@ public class Enemy_Detect : MonoBehaviour
     float EnemyStayTimer = 0;
     [SerializeField] float EnemyStayTimeMax;
 
-    [SerializeField] Transform camera;
+    
     [SerializeField] Transform image;
     [SerializeField] Animator anim;
     private void Update()
     {
-        image.LookAt(camera);
+        image.LookAt(Camera.main.transform.position);
 
 
         if (_switch == false)

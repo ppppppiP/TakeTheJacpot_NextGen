@@ -28,7 +28,7 @@ public class CameraRotation : MonoBehaviour
 
            
             if (Quaternion.LookRotation(target.position - camera.transform.position)==camera.transform.rotation)//?
-            {    Debug.Log("hjklhjk");
+            {   
                 if (target == point1)
                 {
                     target = point2;
@@ -56,7 +56,7 @@ public class CameraRotation : MonoBehaviour
 
     public void Pause_rotation()
     {
-        Timer += 0.1f;
+        Timer += Time.deltaTime;
         isPaused = true;
         if (Timer >= PauseTime)
         {

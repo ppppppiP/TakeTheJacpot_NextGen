@@ -8,7 +8,7 @@ public class Door_opener : MonoBehaviour
     public float rotationAngle = 90f; // ”гол поворота двери
     private bool isOpen = false;
     [SerializeField] GameObject game;
-  
+    bool enter = false;
     
     [SerializeField] int MaxPass;
     [SerializeField] Animator anim;
@@ -16,20 +16,35 @@ public class Door_opener : MonoBehaviour
     [SerializeField] AudioClip clip;
     private void Update()
     {
-       
-    }
-   
-    private void OnTriggerStay(Collider other)
-    {
-        
-        if (!isOpen && other.TryGetComponent(out PlayerController pla)&&PlayerController.Pass.pass>=MaxPass && Input.GetKeyDown(KeyCode.E)) 
+        if (enter)
         {
-            anim.CrossFade("Inter", 0.1f);
-            RotateDoor();
-            audio.clip = clip;
-            audio.Play();
+            if (!isOpen && PlayerController.Pass.pass >= MaxPass && Input.GetKeyDown(KeyCode.E))
+            {
+                anim.CrossFade("Inter", 0.1f);
+                RotateDoor();
+                audio.clip = clip;
+                audio.Play();
+            }
         }
     }
+   
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<PlayerController>())
+        {
+            enter = true;
+        }
+        
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<PlayerController>())
+        {
+            enter = false;
+        }
+
+    }
+
 
     private void RotateDoor()
     {
