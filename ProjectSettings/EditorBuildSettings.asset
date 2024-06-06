@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Dark_Soup/Menu/Menu(Poslednee).unity
-    guid: 9873c011ba02cb24a876efcf6bfb710f
+    path: Assets/DarkSoupNextGen/DSMenu.unity
+    guid: 25262ad76d90a4947ba34013f24fd205
   - enabled: 1
-    path: Assets/hml_zhenya/ZHENYA_V2.unity
-    guid: 310d3e2228c8b8248be971d2895ede99
+    path: Assets/DarkSoupNextGen/DSTestNextGen.unity
+    guid: 72ee818d7046fd24693add6d414e6ae8
   - enabled: 1
     path: Assets/hml_zhenya/OBUCRNIE.unity
     guid: 01509f298435f9048a2afe4addfdc36d
