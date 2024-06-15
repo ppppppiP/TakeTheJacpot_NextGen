@@ -14,7 +14,12 @@ public class LightEnemy : MonoBehaviour
     [SerializeField] LayerMask layerMask;
     [SerializeField] Image image;
     float percent;
-   
+
+    private void Start()
+    {
+        target = PlayerController.Pass.transform;
+       
+    }
     private void Update()
     {
        if( Physics.Linecast(enemy.position, target.position, layerMask))

@@ -3,156 +3,49 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.AI;
+using System;
 using UnityEngine.UI;
 
-public class Enemy_Detect : MonoBehaviour
+public class EnemyAIController : MonoBehaviour
 {
-    [SerializeField] float Timer;
-    [SerializeField] float DetectTime;
-    [SerializeField] float speed;
-    [SerializeField] private Transform position1, position2;
-    private bool _switch = false;
-    bool detected = false;
-    public bool lose = false;
-    [SerializeField] Image detect_image;
-    [SerializeField] GameObject enemy;
-    float percent;
-    [SerializeField] float normalSpeed;
-    float zeroSpeed = 0;
-    float EnemyStayTimer = 0;
-    [SerializeField] float EnemyStayTimeMax;
+    [SerializeField] float m_detectTime;
+    [SerializeField] NavMeshAgent m_agent;
+    [SerializeField] Transform[] m_targets;
+    public event Action EOnPlayerDetected;
 
-    
-    [SerializeField] Transform image;
-    [SerializeField] Animator anim;
-    private void Update()
+    private FSM _fsm;
+    private bool _isEnter;
+
+    private void Start()
     {
-        image.LookAt(Camera.main.transform.position);
-
-
-        if (_switch == false)
+        _fsm = new FSM();
+        _fsm.AddState(new FsmStateIdle(_fsm, m_agent, m_detectTime, EOnPlayerDetected));
+        _fsm.AddState(new FsmStateMove(_fsm, m_agent, m_targets, EOnPlayerDetected));
+        _fsm.SetState<FsmStateIdle>();
+        if (_isEnter)
         {
-            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position1.position, speed * Time.deltaTime);
-            EnemyStay();
-         
-        }
-        else if (_switch == true)
-        {
-            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, position2.position, speed * Time.deltaTime);
-            EnemyStay();
-           
-        }
-
-        if (enemy.transform.position == position1.position)
-        {
-            
-            _switch = true;
-            EnemyMove();
-        }
-        else if (enemy.transform.position == position2.position)
-        {
-
-           
-            _switch = false;
-            EnemyMove();
-        }
-
-        ImageFill1();
-
-        if (detected)
-        {
-            Detected();
-
-            DetectUp();
-
-        }
-        else
-        {
-            DetectDown();
-
+            EOnPlayerDetected?.Invoke();
         }
     }
+
+    public void Update()
+    {
+        _fsm.Update();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.TryGetComponent<PlayerController>(out PlayerController pla))
+        if(other.TryGetComponent<PlayerController>(out PlayerController pla))
         {
-            detected = true;
-
-
+            _isEnter = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.TryGetComponent<PlayerController>(out PlayerController pla))
         {
-            detected = false;
-
+            _isEnter = false;
         }
-
-    }
-    private void DetectUp()
-    {
-        DetectTime += 1f * Time.deltaTime;
-
-
-    }
-    private void DetectDown()
-    {
-
-        if (DetectTime > 0)
-        {
-            DetectTime -= 0.1f;
-            if (DetectTime <= 0)
-            {
-                DetectTime = 0;
-
-            }
-        }
-    }
-    private void Detected()
-    {
-        if (DetectTime >= Timer)
-        {
-
-           
-            UIAdministrator.Menu.LoseMenu.active = true;
-            Time.timeScale = 0;
-        }
-    }
-    void ImageFill1()
-    {
-        percent = DetectTime / Timer;
-        detect_image.fillAmount = percent;
-    }
-    void EnemyStay()
-    {
-        
-        EnemyStayTimer += 1f * Time.deltaTime;
-        speed = zeroSpeed; anim.SetBool("IsWalk", false);
-        if (EnemyStayTimer >= EnemyStayTimeMax)
-        {   anim.SetBool("IsWalk", true);
-            speed = normalSpeed;
-            if (_switch == true)
-            { enemy.transform.LookAt(position2); }
-            else if (_switch == false)
-            { enemy.transform.LookAt(position1); }
-           
-
-        }
-
-    }
-    void EnemyMove()
-    {
-       
-        if (EnemyStayTimer >= 0)
-        {
-
-            EnemyStayTimer = 0;
-        }
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(position1.position, position2.position);
     }
 }

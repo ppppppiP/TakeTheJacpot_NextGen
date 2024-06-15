@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,13 +16,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource audio;
     [SerializeField] AudioClip steps;
     public int pass;
+    
+
     public static PlayerController Pass;
 
     Transform volocity;
     Vector3 currentPos;
 
-    private void Start()
-    { Pass = this;
+    private void OnEnable()
+    {
+        if (Pass == null)
+        { // Ёкземпл€р менеджера был найден
+            Pass = this; // «адаем ссылку на экземпл€р объекта
+        }
+        else if (Pass == this)
+        { // Ёкземпл€р объекта уже существует на сцене
+            Destroy(gameObject); // ”дал€ем объект
+        }
         Time.timeScale = 1;
        
     }
@@ -64,32 +75,11 @@ public class PlayerController : MonoBehaviour
         {
             finish = true;
         }
-        else if (other.TryGetComponent<Enemy_Detect>(out Enemy_Detect lose1))
+        else if (other.TryGetComponent<EnemyAIController>(out EnemyAIController lose1))
         {
             lose = true;
         }
     }
-
-   
-    //    private void Controller()
-    //    {
-    //        float vertical = Input.GetAxisRaw("Vertical");
-    //        float horisontal = Input.GetAxisRaw("Horizontal");
-    //      anim.SetBool("isWalk", true);
-    //            moveDirection = (vertical * transform.forward + horisontal * transform.right).normalized;
-    //            cc.Move(moveDirection * Speed * Time.deltaTime);
-        
-        
-          
-      
-    //         if (vertical != -1)
-    //{
-    //    Quaternion rotation = Quaternion.LookRotation(moveDirection);
-
-    //    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Speed);
-    //}
-
-    //    }
 
      void Move(Vector2 inputDirection)
     {
